@@ -49,10 +49,10 @@ n = 2 | 1 | 2 | 2 | 3 | 3
 
 Following this approach, we know that:
 
-1. If the egg breaks after dropping from jth floor, then you only need to check for floors lower than x with remaining eggs. So the problem reduces to j-1 floors and n-1 eggs
+1. If the egg breaks after dropping from jth floor, then you only need to check for floors lower than j with remaining eggs. So the problem reduces to j-1 floors and n-1 eggs
 
-2. If the egg doesn’t break after dropping from the jth floor, then you only need to check for floors higher than x. So the problem reduces to k-j floors and n eggs.
+2. If the egg doesn’t break after dropping from the jth floor, then you only need to check for floors higher than j. So the problem reduces to k-j floors and n eggs.
 
 Finally, you can write the dynamic programming equation:
 
-**d[n][k] = 1 + min { max( dp[n-1][k-1], dp[n][k - j]) }, for j in [1, 2, ... , k] }**
+**d[n][k] = 1 + min { max( dp[n-1][j-1], dp[n][k - j]) }, for j in [1, 2, ... , k] }**
