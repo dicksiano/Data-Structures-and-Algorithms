@@ -47,4 +47,4 @@ Following this approach, we know that:
 
 Finally, you can write the dynamic programming equation:
 
-**d[n][k] = 1 + min { max( dp[n-1],[k-1], dp[n, k - j]) }, for j in [1, 2, ... , k] }**
+**d[n][k] = 1 + min { max( dp[n-1][k-1], dp[n][k - j]) }, for j in [1, 2, ... , k] }**
