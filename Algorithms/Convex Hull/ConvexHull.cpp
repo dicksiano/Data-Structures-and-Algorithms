@@ -23,11 +23,11 @@ void swapPoints(int a, int b, vector<point> &P) {
 }
 
 bool counterclock(point p, point q, point r) {
-  return ( (q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x) ) > 0; 
+  return ( (q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x) ) > 0; // Cross product
 }
 
 bool collinear(point p, point q, point r) {
-  return fabs( (q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x) ) < 1e-9; 
+  return fabs( (q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x) ) < 1e-9; // Cross product equals zero
 }
 
 bool angleCompare(point A, point B) { // Compare points according to pivot
@@ -48,7 +48,7 @@ vector<point> convexHull(vector<point> P) {
     swapPoints(0, findPivot(P), P); // The first point of the set must be the Pivot
     pivot = P[0];
     sort( ++P.begin(), P.end(), angleCompare); // O(n logn)
-    
+
     vector<point> ch;
     ch.push_back(P[P.size() -1]); // Previus
     ch.push_back(P[0]); // Current
