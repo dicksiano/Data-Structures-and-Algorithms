@@ -3,14 +3,14 @@
 Imagine that you live in a *k floor* building in the great city of Teresina and you have *n eggs*. Your magic building have a special property: if you throw an egg from *floor
 i* or lower it won’t be broken and you can throw it again, and if you throw it from floor i + 1 or higher, it will definitely be broken.
 
-a.  **Higher than i**: destroyed
-b. **Lower than i**: safe
+a)  **Higher than i**: destroyed.
+b) **Lower than i**: safe.
 
 **The problem is discover the optimal *floor i* using the minimum number of trials.**
 
 To solve this problem, let's build a **matrix dp[n][k]**.
 
-The base case is when you have only 1 egg. In that case, you will need to try from the first floor, then from the second one, and so on. In the worst case, you'll do n trials (when the *i* is equals to *n*). So, the matrix will be:
+The base case is when you have only 1 egg. In that case, you will need to try from the first floor, then from the second one, and so on. In the worst case, you'll do n trials (when the *i* is equals to *n*). 
 
 k | 1 | 2 |3 | 4 | 5
 :---------: | :------: | :-------: | :-------: | :-------: | :-------:
@@ -41,7 +41,7 @@ k | 1 | 2 |3 | 4 | 5
 n = 1 | 1 | 2 | 3 | 4 | 5
 n = 2 | 1 | 2 | 2 | 3 | 3
 
-Following this approach, we know that:
+Following this approach, we know that:.
 1) If the egg breaks after dropping from jth floor, then you only need to check for floors lower than x with remaining eggs. So the problem reduces to j-1 floors and n-1 eggs
 2) If the egg doesn’t break after dropping from the jth floor, then you only need to check for floors higher than x. So the problem reduces to k-j floors and n eggs.
 
