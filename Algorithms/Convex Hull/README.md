@@ -1,6 +1,6 @@
 # Convex Hull
 
-**Problem**: Given a set of points int the 2D space, find the Convex Hull that is the set is the smallest convex polygon that contains all the points of it.
+**Problem**: Given a set of points int the 2D space, find the Convex Hull that is the smallest convex polygon that contains all the points of it.
 
 <p align="center">
 <img src=convex_hull.png>
