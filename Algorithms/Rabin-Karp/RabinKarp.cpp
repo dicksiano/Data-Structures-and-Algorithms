@@ -6,7 +6,7 @@ using namespace std;
 
 int hash(string s, int len) {
     int h = 0;
-    for(int i = 0; i < len; i++) h = (h + int(s[i]) * (int)pow(PRIME, i + 1)) % MOD;
+    for(int i = len - 1; i >= 0; i--) h = (PRIME * (h  + s[i] - 'a')) % MOD;
     return (h < 0) ? (h + MOD) : h;
 }
 
@@ -16,12 +16,14 @@ bool naiveMatch(string s, int pos, string p) {
     return true;
 }
 int rabinKarp(string s, string p) {
-    int hashP = hash(p, p.size()), currentHash = hash(s, p.size()), h = (int)pow(PRIME, p.size());
+    int hashP = hash(p, p.size()), currentHash = hash(s, p.size()), h = 1;
+
+    for(int i = 0; i < p.size(); h *= PRIME, i++);
     for(int i = 0; i < s.size() - p.size(); i++) {
         cout << hashP << "," << currentHash << endl;
         if(hashP == currentHash)
             if(naiveMatch(s, i, p)) return i;
-        currentHash = ( currentHash / PRIME - int(s[i]) + int(s[ i+p.size() ]) * h)%MOD; // Sliding window tecnique
+        currentHash = ( currentHash/PRIME - (s[i] -'a') + (s[ i+p.size() ] -'a') * h)%MOD; // Sliding window tecnique
     }
     return -1;
 }
