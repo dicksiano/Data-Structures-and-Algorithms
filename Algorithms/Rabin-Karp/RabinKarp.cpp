@@ -2,11 +2,11 @@
 using namespace std;
 
 #define PRIME 3
-#define MOD 1223999
+#define MOD 1223
 
 int hash(string s, int len) {
     int h = 0;
-    for(int i = len - 1; i >= 0; i--) h = (PRIME * (h  + s[i] - 'a')) % MOD;
+    for(int i = len - 1; i >= 0; i--) h = (PRIME * (h  + s[i])) % MOD;
     return (h < 0) ? (h + MOD) : h;
 }
 
@@ -23,7 +23,7 @@ int rabinKarp(string s, string p) {
         cout << hashP << "," << currentHash << endl;
         if(hashP == currentHash)
             if(naiveMatch(s, i, p)) return i;
-        currentHash = ( currentHash/PRIME - (s[i] -'a') + (s[ i+p.size() ] -'a') * h)%MOD; // Sliding window tecnique
+        currentHash = ( currentHash/PRIME - s[i] + s[ i+p.size() ] * h)%MOD; // Sliding window tecnique
     }
     return -1;
 }
