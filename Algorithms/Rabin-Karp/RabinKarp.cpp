@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PRIME 11
-#define MOD 999999999
+#define PRIME 3
+#define MOD 1223999
 
-unsigned long long int hash(string s, int len) {
-    unsigned long long int h = 0;
-    for(int i = 0; i < len; i++) h += int(s[i]) * (int)pow(PRIME, i + 1);
-    return h;
+int hash(string s, int len) {
+    int h = 0;
+    for(int i = 0; i < len; i++) h = (h + int(s[i]) * (int)pow(PRIME, i + 1)) % MOD;
+    return (h < 0) ? (h + MOD) : h;
 }
 
 bool naiveMatch(string s, int pos, string p) {
@@ -16,11 +16,12 @@ bool naiveMatch(string s, int pos, string p) {
     return true;
 }
 int rabinKarp(string s, string p) {
-    unsigned long long int hashP = hash(p, p.size()), currentHash = hash(s, p.size());
+    int hashP = hash(p, p.size()), currentHash = hash(s, p.size()), h = (int)pow(PRIME, p.size());
     for(int i = 0; i < s.size() - p.size(); i++) {
+        cout << hashP << "," << currentHash << endl;
         if(hashP == currentHash)
             if(naiveMatch(s, i, p)) return i;
-        currentHash = ((currentHash - PRIME * int(s[i])) / PRIME + int(s[ i + p.size() ]) * (int)pow(PRIME, p.size()))%MOD; // Sliding window tecnique
+        currentHash = ( currentHash / PRIME - int(s[i]) + int(s[ i+p.size() ]) * h)%MOD; // Sliding window tecnique
     }
     return -1;
 }
