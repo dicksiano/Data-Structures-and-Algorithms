@@ -2,8 +2,8 @@
 using namespace std; 
 
 /* 
-    Time: O(n) - PreProcess
-          O(sqrt n) - Per query
+    Time:  O(n) - PreProcess
+           O(sqrt n) - Per query
     Space: O(n)
 */
 vector<int> preProcess(vector<int> v, int n) {
