@@ -6,7 +6,7 @@ using namespace std;
   Pointer to Parent
   Each node has a pointer to left child, to right child and to its parent.
   As it has a pointer to parent, lets use it to produce a solution
-  
+
   Time: O(log n)
   Space: O(1)
 
@@ -37,7 +37,7 @@ int depth(node *root) {
   return ans;
 }
 
-int firstCommonAncestor1(node *p, node *q) {
+int lca(node *p, node *q) {
   if(p == NULL || q == NULL) return -1; // error
   if(p == q) return p->elem;
 

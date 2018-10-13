@@ -37,13 +37,13 @@ class node {
     node *left, *right;
 };
 
-node *firstCommonAncestor2(node *root, node *p, node *q) {
+node *lca(node *root, node *p, node *q) {
   if(p == NULL || q == NULL || root == NULL) return NULL; // error
 
   if(root == p || root == q) return root;
 
-  node *lcaLeft = firstCommonAncestor2(root->left, p, q);
-  node *lcaRight = firstCommonAncestor2(root->right, p, q);
+  node *lcaLeft = lca(root->left, p, q);
+  node *lcaRight = lca(root->right, p, q);
 
   if(lcaLeft && lcaRight) return root;
   return (lcaLeft) ? lcaLeft : lcaRight;
