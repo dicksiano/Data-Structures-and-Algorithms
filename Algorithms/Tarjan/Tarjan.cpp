@@ -9,7 +9,6 @@ class Graph {
 
         void addEdge(int i, int j) { e[i].push_back(j); }
 
-
         void tarjan() {
             int s = 0;
             int f = 0;
@@ -46,9 +45,10 @@ class Graph {
         }
 
         bool isTreeEdge(int i, int j, vector<int> started) { return !started[j]; }
-        bool isBackEdge(int i, int j, vector<int> started, vector<int> finished)    { return started[i] > started[j] && !finished[j]; }
-        bool isForwardEdge(int i, int j, vector<int> started, vector<int> finished) { return started[i] < started[j] &&  finished[j]; }
-        bool isCrossEdge(int i, int j, vector<int> started, vector<int> finished)   { return started[i] > started[j] &&  finished[j]; }
+        bool isBackEdge(int i, int j, vector<int> started, vector<int> finished)    { return !isDescendent(i,j, started) && !finished[j]; }
+        bool isForwardEdge(int i, int j, vector<int> started, vector<int> finished) { return  isDescendent(i,j, started) &&  finished[j]; }
+        bool isCrossEdge(int i, int j, vector<int> started, vector<int> finished)   { return !isDescendent(i,j, started) &&  finished[j]; }
+        bool isDescendent(int i, int j, vector<int> started) { return started[i] < started[j]; }
         
 };
 
