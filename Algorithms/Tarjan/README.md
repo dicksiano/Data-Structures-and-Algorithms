@@ -19,7 +19,7 @@ Those edges are called **Tree edges**. They are the more regular edges: from an 
 <img src=assets/Tarjan2.png>
 </p>
 
-The blue edge is called **Return edge**. An edge to an **not completed** ancestor vertex.
+The blue edge is called **Back edge**. An edge to an **not completed** ancestor vertex.
 <p align="center">
 <img src=assets/Tarjan3.png>
 </p>
@@ -36,3 +36,9 @@ We've now finished all vertex that can be reached from A.
 </p>
 
 The green edge is called **Cross edge**. An edge to an **already completd** ancestor.
+
+A edge can be classified as:
+**Tree edges**: edge to an unexplored descendent                &rightarrow; started[destiny] = 0
+**Back edge**: edge to an not completed ancestor                &rightarrow; started[destiny] < started[origin] && finished[destiny] = 0
+**Forward edge**: edge to an already completed descendent       &rightarrow; started[destiny] > started[origin] && finished[destiny] = 1
+**Cross edge**: edge to an already completd ancestor            &rightarrow; started[destiny] > started[origin] && finished[destiny] = 1
