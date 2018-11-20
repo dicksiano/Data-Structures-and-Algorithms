@@ -10,5 +10,21 @@ Starting DFS from vertex A, we have:
 
 
 <p align="center">
-<img src=assets/tarjan.png>
+<img src=assets/Tarjan1.png>
+</p>
+
+<p align="center">
+<img src=assets/Tarjan2.png>
+</p>
+
+<p align="center">
+<img src=assets/Tarjan3.png>
+</p>
+
+<p align="center">
+<img src=assets/Tarjan4.png>
+</p>
+
+<p align="center">
+<img src=assets/Tarjan5.png>
 </p>
