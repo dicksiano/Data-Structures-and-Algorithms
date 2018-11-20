@@ -9,6 +9,16 @@ class Graph {
 
         void addEdge(int i, int j) { e[i].push_back(j); }
 
+        void bfs(int i) {
+            vector<int> visited(v.size(), 0);
+            bfs(i, visited);
+        }
+
+        void dfs(int i) {
+            vector<int> visited(v.size(), 0);
+            dfs(i, visited);
+        }
+
         void print() {
             for(int i = 0; i < v.size(); i++) {
                 cout << std::setw(2) << v[i] << ": ";
@@ -16,11 +26,6 @@ class Graph {
                     cout << std::setw(2) << v[ e[i][j] ] << " ";
                 cout << endl;
             }
-        }
-
-        void bfs(int i) {
-            vector<int> visited(v.size(), 0);
-            bfs(i, visited);
         }
 
     private:
@@ -32,12 +37,24 @@ class Graph {
 
             while(!q.empty()) {
                 int curr = q.front(); q.pop();
-                cout << v[curr] << endl;
+                visit(curr);
                 visited[curr] = 1;
 
                 for(int i = 0; i < e[curr].size(); i++) 
                     if(!visited[ e[curr][i] ]) q.push( e[curr][i] );
             }
+        }
+
+        void dfs(int u, vector<int> &visited) {
+            visit(u);
+            visited[u] = 1;
+
+            for(int i = 0; i < e[u].size(); i++) 
+                if(!visited[ e[u][i] ]) dfs(e[u][i], visited);
+        }
+
+        void visit(int x) {
+            cout << v[x] << endl;
         }
 };
 
@@ -47,11 +64,12 @@ int main() {
 
     Graph *g = new Graph(v);
     g->addEdge(1, 0); 
-    g->addEdge(3, 0); g->addEdge(3, 1); g->addEdge(3, 2); g->addEdge(3, 6);
+    g->addEdge(3, 0); g->addEdge(3, 1); g->addEdge(3, 6);
     g->addEdge(5, 6);
     g->addEdge(6, 2); g->addEdge(6, 4);
     g->print();
     g->bfs(3);
+    g->dfs(3);
 
     return 0;
 }
