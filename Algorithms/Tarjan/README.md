@@ -13,7 +13,7 @@ Starting DFS from vertex A, we have:
 <img src=assets/Tarjan1.png>
 </p>
 
-Those edges are called **Tree edges**. They are the more regular edges: from an explored, but not completed vertex to a vertex not explored (not completed, consequently).
+Those edges are called **Tree edges**. They are the most regular edges: from an explored, but not completed vertex to a vertex not explored (not completed, consequently).
 
 <p align="center">
 <img src=assets/Tarjan2.png>
@@ -29,7 +29,7 @@ The red edge is called **Forward edge**. An edge to an **already completed**  de
 <img src=assets/Tarjan4.png>
 </p>
 
-We've now finished all vertex that can be reached from A.
+We've now finished all vertex that can be reached from A. As none of the previews vertex can reach D, the exploration of D will create a new subtree.
 
 <p align="center">
 <img src=assets/Tarjan5.png>
@@ -37,8 +37,10 @@ We've now finished all vertex that can be reached from A.
 
 The green edge is called **Cross edge**. An edge to an **already completd** ancestor.
 
-A edge can be classified as:
-**Tree edges**: edge to an unexplored descendent                &rightarrow; started[destiny] = 0
-**Back edge**: edge to an not completed ancestor                &rightarrow; started[destiny] < started[origin] && finished[destiny] = 0
-**Forward edge**: edge to an already completed descendent       &rightarrow; started[destiny] > started[origin] && finished[destiny] = 1
-**Cross edge**: edge to an already completd ancestor            &rightarrow; started[destiny] > started[origin] && finished[destiny] = 1
+
+
+
+**Tree edges**: edge to an unexplored descendent          &rightarrow; **started[destiny] = 0**<br>
+**Back edge**: edge to an not completed ancestor          &rightarrow; **started[destiny] < started[origin] && finished[destiny] = 0**<br>
+**Forward edge**: edge to an already completed descendent  &rightarrow; **started[destiny] > started[origin] && finished[destiny] = 1**<br>
+**Cross edge**: edge to an already completd ancestor      &rightarrow; **started[destiny] > started[origin] && finished[destiny] = 1**<br>
