@@ -56,18 +56,18 @@ class Graph {
 
 int main() {
     vector<char> v; 
-    v.push_back('A');  // 0
-    v.push_back('B');  // 1
-    v.push_back('C');  // 2
-    v.push_back('D');  // 3
-    v.push_back('E');  // 4
+    v.push_back('A');  
+    v.push_back('B');  
+    v.push_back('C');  
+    v.push_back('D');  
+    v.push_back('E');  
+    v.push_back('F');  
 
     Graph *g = new Graph(v);
-    g->addEdge(1, 0); 
-    g->addEdge(0, 2); 
-    g->addEdge(2, 1); 
-    g->addEdge(0, 3); 
-    g->addEdge(3, 4); 
+    g->addEdge(0, 1); g->addEdge(0, 5); g->addEdge(0, 4);
+    g->addEdge(1, 2);  
+    g->addEdge(2, 0); g->addEdge(2, 5); 
+    g->addEdge(3, 4);
 
     g->SCC();
 
