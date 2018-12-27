@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int bfs(vector<vector<int> > g, vector<vector<int> > adjMatrix, int s, int t, int p[]) {
+int bfs(vector<vector<int> > g, vector<vector<int> > &adjMatrix, int s, int t, int p[]) {
     queue<int> q; q.push(s);
     vector<int> visited(g.size(), 0);
     p[s] = -1;
@@ -15,7 +15,7 @@ int bfs(vector<vector<int> > g, vector<vector<int> > adjMatrix, int s, int t, in
     }
     return visited[t];
 }
-int edmondsKarp(vector<vector<int> > g, vector<vector<int> > adjMatrix, int s, int t) {
+int edmondsKarp(vector<vector<int> > g, vector<vector<int> > &adjMatrix, int s, int t) {
     int p[g.size()], mf = 0;
 
     for(int pathFlow = INT_MAX; bfs(g, adjMatrix, s, t, p); pathFlow = INT_MAX) {                                   // While there's a path betweem s and t
