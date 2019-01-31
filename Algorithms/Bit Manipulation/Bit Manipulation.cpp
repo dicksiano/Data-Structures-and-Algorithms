@@ -6,7 +6,7 @@ int main() {
     bool isPower2 = n & (n - 1);        // Check if the number is a power of 2
     LSO(i) = i & -i;                    // Least significant bit - AND of number and 1's complement
     
-    for(int i = n; i; i = i * (i - 1))  // Count numbes of 1
+    for(int i = n; i; i = i & (i - 1))  // Count number of 1's
 
     return 0;
 }
