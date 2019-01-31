@@ -7,6 +7,9 @@ int main() {
     LSO(i) = i & -i;                    // Least significant bit - AND of number and 1's complement
     
     for(int i = n; i; i = i & (i - 1))  // Count number of 1's
+        
+    for(int i = 0; i < str.size(); i++) // Bitmask for letters in the word: O(1) instead of O( alphabet size )
+        bitmask |= (1 << (str[i] - 'a'));    
 
     return 0;
 }
