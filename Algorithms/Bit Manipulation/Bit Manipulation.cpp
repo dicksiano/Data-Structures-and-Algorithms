@@ -11,5 +11,6 @@ int main() {
     for(int i = 0; i < str.size(); i++) // Bitmask for letters in the word: O(1) instead of O( alphabet size )
         bitmask |= (1 << (str[i] - 'a'));    
 
+    y ^ x ^ y = x // XOR property, useful for finding missing numbers
     return 0;
 }
