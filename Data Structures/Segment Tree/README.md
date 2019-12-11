@@ -64,6 +64,7 @@ For example, query(3, 6):
 for(l += n, r += n; l <= r; l /= 2, r /= 2) {
     if(l & 1 ) q += a[l++];
     if(!(r&1)) q += a[r--];
+<<<<<<< HEAD
 }
 ``` 
 
@@ -80,5 +81,7 @@ For example, update(6, 7): // +1 in 6th position
 ``` cpp
 a[i+n] = x;
 for(i = (i+n)/2; i; i /= 2) a[i] = a[i * 2] + a[1 + i*2];
+=======
+>>>>>>> 5d68bfa1c02fef57a84c6db5dbb0aa977ce10fe0
 }
 ``` 
