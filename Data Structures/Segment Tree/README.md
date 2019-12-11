@@ -1,6 +1,6 @@
 # Build
 
-Let's build the segment tree from **v = {0, 1, 2,3, 4, 5, 6, 7}**.
+Let's build the segment tree from **v = {0, 1, 2, 3, 4, 5, 6, 7}**.
 
 ``` cpp
 n = v.size();
@@ -53,7 +53,7 @@ Finally, the segment tree:
 
 # Query
 
-For example, query(3, 6):
+For example, **query(3, 6)**:
 
 <p align="center">
 <img src=assets/segtreequery1.png>
@@ -69,8 +69,11 @@ for(l += n, r += n; l <= r; l /= 2, r /= 2) {
 
 # Update
 
-For example, update(6, 7): // +1 in 6th position
+For example, **update(6, 7)**: 
 
+``` cpp
+/* +1 in 6th position */
+``` 
 
 <p align="center">
 <img src=assets/segtreeupdate.png>
@@ -80,5 +83,4 @@ For example, update(6, 7): // +1 in 6th position
 ``` cpp
 a[i+n] = x;
 for(i = (i+n)/2; i; i /= 2) a[i] = a[i * 2] + a[1 + i*2];
-}
 ``` 
