@@ -63,6 +63,22 @@ For example, query(3, 6):
 ``` cpp
 for(l += n, r += n; l <= r; l /= 2, r /= 2) {
     if(l & 1 ) q += a[l++];
-	if(!(r&1)) q += a[r--];
+    if(!(r&1)) q += a[r--];
+}
+``` 
+
+# Update
+
+For example, update(6, 7): // +1 in 6th position
+
+
+<p align="center">
+<img src=assets/segtreeupdate.png>
+</p>
+
+
+``` cpp
+a[i+n] = x;
+for(i = (i+n)/2; i; i /= 2) a[i] = a[i * 2] + a[1 + i*2];
 }
 ``` 
