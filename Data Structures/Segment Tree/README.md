@@ -63,6 +63,6 @@ For example, query(3, 6):
 ``` cpp
 for(l += n, r += n; l <= r; l /= 2, r /= 2) {
     if(l & 1 ) q += a[l++];
-	if(!(r&1)) q += a[r--];
+    if(!(r&1)) q += a[r--];
 }
 ``` 
