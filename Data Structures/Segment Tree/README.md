@@ -50,3 +50,19 @@ Finally, the segment tree:
 <p align="center">
 <img src=assets/segtreebuild9.png>
 </p>
+
+# Query
+
+For example, query(3, 6):
+
+<p align="center">
+<img src=assets/segtreequery1.png>
+</p>
+
+
+``` cpp
+for(l += n, r += n; l <= r; l /= 2, r /= 2) {
+    if(l & 1 ) q += a[l++];
+	if(!(r&1)) q += a[r--];
+}
+``` 
