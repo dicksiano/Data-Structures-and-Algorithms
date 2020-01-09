@@ -13,13 +13,11 @@ class UnionFind {
 
             numSet--;
             int x = find(i), y = find(j);
-            if(size[x] > size[y]) {                 // Path compression
-                p[y] = x;         
-                size[x] += size[y];
-            } else {
-                p[x] = y;                          // Who has the biggest size is the new parent
-                size[y] += size[x];
-            }                            
+            int maxi = (size[x] > size[y]) ? x : y; // Path compression
+            int mini = (size[x] > size[y]) ? y : x; // Who has the biggest size is the new parent
+
+            p[mini] = maxi;
+            size[maxi] = += size[mini];               
         }
         int find(int i, int j) { return (p[i] == i) ? i : ( p[i] = find(p[i]) ); }
         bool isSameSet(int i, int j) { return find(i) == find(j); }
